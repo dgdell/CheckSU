@@ -26,7 +26,7 @@ dependencies {
 Now it's time to verify!
 ###  Example:
  ```java
- @Override
+     @Override
         protected void onPostExecute(Boolean isRooted) {
             ...
             if(isRooted){
