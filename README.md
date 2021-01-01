@@ -26,13 +26,11 @@ dependencies {
 Now it's time to verify!
 ###  Example:
  ```java
-     @Override
-        protected void onPostExecute(Boolean isRooted) {
             ...
             if(isRooted){
-                Toast.makeText(getApplicationContext(), "Device rooted", Toast.LENGTH_LONG).show();
+                // Implement your code here
             } else{
-                Toast.makeText(getApplicationContext(), "Device No rooted", Toast.LENGTH_LONG).show();
+                //
             }
-        }
+	    ...
 ```
