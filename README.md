@@ -21,7 +21,7 @@ dependencies {
  ## Usage
  Initialize CheckSU
  ```java
- boolean returnRootStatus = CheckSU.checkRootAccess(getApplicationContext());
+ boolean isRooted = CheckSU.checkRootAccess(getApplicationContext());
  ```
 Now it's time to verify!
 ###  Example:
