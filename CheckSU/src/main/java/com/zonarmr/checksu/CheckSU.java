@@ -43,4 +43,18 @@ public class CheckSU{
             }
         }
     }
+
+    public static void executeAsRoot(Context ctx, String command) {
+        Process suProcess;
+        try {
+            suProcess = Runtime.getRuntime().exec(command);
+            DataOutputStream os = new DataOutputStream(suProcess.getOutputStream());
+            DataInputStream osRes = new DataInputStream(suProcess.getInputStream());
+            os.writeBytes(command);
+            os.writeBytes("exit\n");
+            os.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
