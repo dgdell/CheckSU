@@ -26,11 +26,51 @@ dependencies {
 Now it's time to verify!
 ###  Example:
  ```java
-            ...
-            if(isRooted){
-                // Implement your code here
-            } else{
-                //
-            }
-	    ...
+    @SuppressLint("StaticFieldLeak")
+	public class AsyncTaskCheckRoot extends AsyncTask<Void, Void, Boolean> {
+
+        @Override
+        protected void onPreExecute() {
+	        progressDialog = new ProgressDialog(this);
+		   progressDialog.setCancelable(false);
+		   progressDialog.setMessage(getString(R.string.analyzing));
+		   progressDialog.show();
+         }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+		   try {
+			Thread.sleep( 2 * 1000 );
+		   }
+		   catch (InterruptedException e){
+			e.printStackTrace();
+		   }
+		   return CheckSU.checkRootAccess(getApplicationContext());
+         }
+
+        @Override
+        protected void onPostExecute(Boolean isRooted) {
+            progressDialog.dismiss();
+		   if(isRooted){
+		       Toast.makeText(getApplicationContext(), "Device rooted", Toast.LENGTH_LONG).show();
+		   } else{
+	               // Do something
+		   }
+         }
+     }
 ```
+
+Executing a shell operation:
+
+```java
+String cmd = "su -c am start -a android.intent.action.ACTION_REQUEST_SHUTDOWN";
+
+
+if(isRooted){
+    CheckSU.executeAsRoot(context, cmd);
+} else{
+    // Do something
+}
+```
+
+
