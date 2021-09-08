@@ -19,11 +19,6 @@ dependencies {
 }
   ```
  ## Usage
- Initialize CheckSU
- ```java
- boolean isRooted = CheckSU.checkRootAccess(getApplicationContext());
- ```
-Now it's time to verify!
 ###  Example:
  ```java
     @SuppressLint("StaticFieldLeak")
@@ -52,12 +47,12 @@ Now it's time to verify!
         protected void onPostExecute(Boolean isRooted) {
             progressDialog.dismiss();
 		   if(isRooted){
-		       Toast.makeText(getApplicationContext(), "Device rooted", Toast.LENGTH_LONG).show();
+		       Toast.makeText(getApplicationContext(), "Device has root access", Toast.LENGTH_LONG).show();
 		   } else{
 	               // Do something
 		   }
          }
-     }
+    }
 ```
 
 Executing a shell operation:
