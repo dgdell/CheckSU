@@ -15,7 +15,7 @@ repositories {
 And add the library to your module build.gradle:
 ```java
 dependencies {
-	implementation 'com.github.ZonaRMR:CheckSU:1.0'
+	implementation 'com.github.LowTension:CheckSU:1.1.7'
 }
   ```
  ## Usage
